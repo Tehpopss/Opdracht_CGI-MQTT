@@ -36,7 +36,7 @@ int main()
         fprintf(stderr, "%s\n", mysql_error(con));
         exit(1);
     }
-    if (mysql_real_connect(con, "62.171.130.95", "root", "LjAU528fL)Gu^P]&",
+    if (mysql_real_connect(con, "Sensor", "root", "Data",
                            "BVMD", 0, NULL, 0) == NULL)
     {
         fprintf(stderr, "%s\n", mysql_error(con));
