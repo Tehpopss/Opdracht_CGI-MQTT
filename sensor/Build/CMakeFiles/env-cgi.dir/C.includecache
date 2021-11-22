@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/Embedded2/Opdracht3_CGI_MQTT/sensor/main.c
+stdio.h
+/home/pi/Embedded2/Opdracht3_CGI_MQTT/sensor/stdio.h
+stdlib.h
+/home/pi/Embedded2/Opdracht3_CGI_MQTT/sensor/stdlib.h
+string.h
+/home/pi/Embedded2/Opdracht3_CGI_MQTT/sensor/string.h
+MQTTClient.h
+/home/pi/Embedded2/Opdracht3_CGI_MQTT/sensor/MQTTClient.h
+wiringPiI2C.h
+-
+

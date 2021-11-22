@@ -1,0 +1,1 @@
+/usr/bin/cc   -rdynamic CMakeFiles/env-cgi.dir/main.c.o  -o env-cgi  -lpaho-mqtt3c -lwiringPi 

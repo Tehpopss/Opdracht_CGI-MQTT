@@ -1,0 +1,6 @@
+cmake_minimum_required (VERSION 2.6)
+project (ENV-CGI)
+add_executable(${PROJECT_NAME} main.c)
+include_directories(/usr/include/mariadb /usr/include/mariadb/mysql)
+target_link_libraries(${PROJECT_NAME} mariadb)
+set(EXECUTABLE_OUTPUT_PATH "/usr/lib/cgi-bin")
