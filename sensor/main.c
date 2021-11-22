@@ -5,8 +5,8 @@
 #include <wiringPiI2C.h>
 
 #define ADDRESS "tcp://broker.hivemq.com:1883"
-#define CLIENTID "BVMD-SENSOR"
-#define TOPIC "BVMD-DATA"
+#define CLIENTID "Sensor"
+#define TOPIC "Data"
 #define QOS 0
 #define TIMEOUT 10000L
 
@@ -21,14 +21,12 @@ int main(int argc, char *argv[])
     int fd = wiringPiI2CSetup(DEVICE_ID);
     if (fd == -1)
     {
-        printf("Failed to init I2C communication.\n");
         return -1;
     }
-    printf("I2C communication successfully setup.\n");
 
     int temperatuur = wiringPiI2CReadReg8(fd, REG_TEMP);
 
-    printf("De temperatuur is %d\n", temperatuur);
+    printf("Temperature is %d\n °C", temperatuur);
     sprintf(buffer, "%d", temperatuur);
 
     MQTTClient client;
