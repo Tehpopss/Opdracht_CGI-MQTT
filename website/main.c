@@ -36,15 +36,31 @@ int main()
         fprintf(stderr, "%s\n", mysql_error(con));
         exit(1);
     }
-    if (mysql_real_connect(con, "Sensor", "root", "Data",
-                           "BVMD", 0, NULL, 0) == NULL)
+    if (mysql_real_connect(con, "localhost", "root", "root_pswd",
+                            NULL,0, NULL, 0) == NULL)
     {
         fprintf(stderr, "%s\n", mysql_error(con));
         mysql_close(con);
         exit(1);
     }
 
-    mysql_query(con, "SELECT * FROM `sensor_data`");
+    if (mysql_query(con, "CREATE DATABASE Sensor_Data"))
+	{
+		fprintf(stderr, "%s\n", mysql_error(con));
+	}	
+	if (mysql_query(con, "USE Sensor_Data"))
+	{
+		fprintf(stderr, "%s\n", mysql_error(con));
+	}
+
+    if (mysql_query(con, "CREATE TABLE Data(id INT NOT NULL AUTO_INCREMENT, PRIMARY KEY (id), Data INT,Temperatuur INT, date_time datetime NOT NULL DEFAULT CURRENT_TIMESTAMP)"))
+	{
+		fprintf(stderr, "%s\n", mysql_error(con));
+		mysql_close(con);
+		return;
+	}
+
+    mysql_query(con, "SELECT * FROM `Sensor_Data`");
     MYSQL_RES *confres = mysql_store_result(con);
     int totalrows = mysql_num_rows(confres);
     int numfields = mysql_num_fields(confres);
